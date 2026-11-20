@@ -1,0 +1,17 @@
+# LocalStack para el curso. Desde marzo de 2026 LocalStack exige un auth token
+# (el plan Hobby es gratuito para uso no comercial; Student vía GitHub Education).
+# 1) Creá tu cuenta en https://app.localstack.cloud y copiá tu Auth Token
+# 2) export LOCALSTACK_AUTH_TOKEN=ls-xxxx   (PowerShell: $env:LOCALSTACK_AUTH_TOKEN="ls-xxxx")
+# 3) docker compose up -d
+services:
+  localstack:
+    image: localstack/localstack:latest   # fijá una versión (p. ej. la que indique el docente) para que todos usen la misma
+    container_name: localstack-de2
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?Definí la variable LOCALSTACK_AUTH_TOKEN}
+      - DEBUG=0
+    volumes:
+      - "./.localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

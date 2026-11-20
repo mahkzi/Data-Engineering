@@ -1,0 +1,32 @@
+# Entorno y secretos
+.env
+*.env
+*.pem
+*.key
+
+# Terraform / Terragrunt / LocalStack
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+localstack_providers_override.tf
+
+# Flink / checkpoints / logs locales
+checkpoints/
+logs/
+*.log
+
+# Python / sistemas operativos
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
